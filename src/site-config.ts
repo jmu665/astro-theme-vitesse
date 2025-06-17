@@ -44,20 +44,24 @@ export const siteConfig = {
     },
     navLinks: [
       {
-        text: 'Blog',
-        href: '/blog',
+        text: 'Inicio',
+        href: '/',
       },
       {
-        text: 'Notes',
-        href: '/blog/notes',
+        text: 'Servicios ',
+        href: '/servicios',
       },
       {
-        text: 'Talks',
-        href: '/blog/talks',
+        text: 'Que somos',
+        href: '/prueba1',
       },
       {
-        text: 'Projects',
-        href: '/projects',
+        text: 'Horarios',
+        href: '/horario',
+      },
+      {
+        text: 'Carrusel',
+        href: '/carrusel',
       },
     ],
   },

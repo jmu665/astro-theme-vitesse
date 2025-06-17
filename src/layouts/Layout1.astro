@@ -1,0 +1,56 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style is:global>
+      /* Estilos globales para la página y el fondo */
+      :root {
+        --bg-image: url(/public/Taller2.jpg); /* Ruta a tu imagen de fondo */
+        --content-bg: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para el contenido */
+        --primary-blue: #007bff;
+        --dark-gray: #b1b7c5;
+        --text-gray: #b1b7c5;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
+        display: flex; /* Para centrar el contenido fácilmente */
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

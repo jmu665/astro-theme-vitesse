@@ -1,0 +1,70 @@
+---
+import Layout from '@/layouts/BaseLayout.astro'
+---
+
+<Layout title="Multiservicio Liaca - Nuestros Servicios">
+  <main>
+    <div class="content-card">
+      <h1>¿Qué hacemos en Taller automotriz astro?</h1>
+      <div class="icons-container">
+        <span class="icon">🚗</span>
+        <span class="icon">💧</span>
+        <span class="icon">🔧</span>
+        <span class="icon">⚙️</span>
+      </div>
+      <p class="text-info">
+        ¡Recibe servicios profesionales bajo la mejor atención!
+        <strong>Taller automotriz astro</strong> es un <strong>taller mecánico automotriz</strong> con personal altamente
+        capacitado. Desde hace 15 años atendemos a un gran número de clientes en Culiacán, Sinaloa.
+      </p>
+    </div>
+  </main>
+
+  <style>
+    /* Estilos específicos para esta página */
+    main {
+      padding: 20px; /* Espaciado interno para la tarjeta de contenido */
+      width: 100%;
+      max-width: 800px; /* Ancho máximo de la tarjeta de contenido */
+      margin: 0 auto; /* Centrar la tarjeta */
+    }
+
+    .content-card {
+      background-color: var(--content-bg); /* Usa la variable definida en el layout */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(146, 16, 16, 0.1); /* Sombra suave para la tarjeta */
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--primary-blue); /* Usa la variable */
+      margin-bottom: 25px;
+      font-size: 2.2em;
+    }
+
+    .icons-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 15px; /* Espacio entre los iconos */
+      flex-wrap: wrap; /* Permite que los iconos se envuelvan en pantallas pequeñas */
+    }
+
+    .icon {
+      font-size: 3.5em; /* Iconos más grandes */
+      color: var(--dark-gray); /* Usa la variable */
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.03); /* Un poco de fondo para el icono */
+      border-radius: 8px;
+    }
+
+    .text-info {
+      margin-top: 20px;
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: var(--text-gray); /* Usa la variable */
+    }
+  </style>
+</Layout>

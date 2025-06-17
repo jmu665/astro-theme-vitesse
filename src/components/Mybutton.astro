@@ -1,0 +1,77 @@
+---
+// src/components/MyButton.astro
+interface Props {
+  href: string
+  text: string
+  target?: '_blank' | '_self' | '_parent' | '_top' // Opcional: para abrir en nueva pestaña
+  variant?: 'primary' | 'secondary' | 'outline' // Opcional: para diferentes estilos
+}
+
+const { href, text, target = '_self', variant = 'primary' } = Astro.props
+---
+
+<a href={href} target={target} class:list={['button', variant]}>
+  {text}
+</a>
+
+<style>
+  /* Estilos base para todos los botones */
+  .button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 8px; /* Bordes más suaves */
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto se rompa */
+  }
+
+  /* Variantes de estilo */
+  .primary {
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    border: 2px solid #007bff;
+  }
+
+  .primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .secondary {
+    background-color: #6c757d; /* Gris */
+    color: white;
+    border: 2px solid #6c757d;
+  }
+
+  .secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+  }
+
+  .outline {
+    background-color: transparent;
+    color: #007bff; /* Texto azul */
+    border: 2px solid #007bff; /* Borde azul */
+  }
+
+  .outline:hover {
+    background-color: #e6f2ff; /* Fondo ligeramente azulado al pasar el ratón */
+    color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  /* Pequeña mejora de accesibilidad */
+  .button:focus-visible {
+    outline: 3px solid rgba(0, 123, 255, 0.5);
+    outline-offset: 2px;
+  }
+</style>

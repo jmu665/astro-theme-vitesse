@@ -1,0 +1,112 @@
+---
+// src/components/CarouselCSS.astro
+interface Props {
+  slides: {
+    src: string
+    alt: string
+    caption?: string
+  }[]
+}
+
+const { slides } = Astro.props
+---
+
+<div class="carousel-container">
+  <div class="carousel-inner">
+    {
+      slides.map((slide) => (
+        <div class="carousel-item">
+          <img src={slide.src} alt={slide.alt} />
+          {slide.caption && <div class="carousel-caption">{slide.caption}</div>}
+        </div>
+      ))
+    }
+  </div>
+  <div class="carousel-indicators">
+    {
+      slides.map((_, index) => (
+        <a href={`#slide-${index}`} class="indicator" aria-label={`Ir a la diapositiva ${index + 1}`} />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Ajusta el ancho máximo de tu carrusel */
+    margin: 50px auto;
+    overflow: hidden; /* Oculta la barra de desplazamiento */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .carousel-inner {
+    display: flex;
+    overflow-x: scroll; /* Permite el desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* Ajusta el desplazamiento a cada elemento */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en iOS */
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los indicadores */
+  }
+
+  .carousel-item {
+    flex: 0 0 100%; /* Cada elemento ocupa el 100% del ancho del contenedor */
+    scroll-snap-align: start; /* Alinea el inicio de cada elemento al inicio del contenedor */
+    position: relative;
+    height: 400px; /* Ajusta la altura de cada slide */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* Color de fondo si la imagen no carga */
+    color: white;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre el área manteniendo la relación de aspecto */
+    display: block;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.1em;
+  }
+
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  .indicator {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Para que no aparezca subrayado de enlace */
+    outline: none; /* Eliminar el contorno al enfocar */
+  }
+
+  .indicator:hover,
+  .indicator:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Opcional: Resaltar el indicador activo (requiere JS si es automático, pero podemos simularlo con enlaces) */
+  /* Para carruseles CSS puros, el indicador activo generalmente se gestiona con JS o con :target */
+  /* Para este ejemplo simple, los indicadores son solo enlaces que saltan a la posición */
+</style>

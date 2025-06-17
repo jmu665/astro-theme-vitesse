@@ -1,0 +1,35 @@
+---
+import Layout from '@/layouts/BaseLayout.astro'
+import CarouselCSS from '@/components/carouselCSS.astro'
+
+const slides = [
+  { src: '/public/Taller.jpg', alt: 'Vista del coche en taller', caption: 'Servicios de mecánica general' },
+  { src: '/public/Taller2.jpg', alt: 'Detalle de motor', caption: 'Diagnóstico avanzado' },
+  { src: '/public/hero.jpg', alt: 'Rueda y neumático', caption: 'Servicio de neumáticos y alineación' },
+]
+---
+
+<Layout title="Nuestro Carrusel CSS">
+  <main>
+    <h1>Descubre nuestros servicios</h1>
+    <CarouselCSS slides={slides} />
+    <p>Este es un carrusel hecho puramente con HTML y CSS. ¡Rápido y eficiente!</p>
+  </main>
+
+  <style>
+    main {
+      max-width: 10000px;
+      margin: 50px auto;
+      padding: 50px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 100px;
+      box-shadow: 0 100px 100px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 40px;
+    }
+  </style>
+</Layout>
